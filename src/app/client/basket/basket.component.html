@@ -1,0 +1,54 @@
+<section class=" section_padding cart_section">
+    <div class="container">
+        
+        <h2>Panier</h2>
+        <div *ngIf="getBasketDetails">
+            <div class="table_responsive">
+                <table>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Quantité </th>
+                        <th>Prix</th>
+                        <td> Prix Produits</td>
+                        <td> Supression Produit</td>
+
+                    </tr>
+
+                    <tr *ngFor="let x of getBasketDetails">
+                        <td>{{x.title}}</td>
+                        <td>
+                            <div class="content">
+                                <button type="button" class="btn" (click)="incQty(x.id, x.qty)"><i
+                                        class="fa fa-plus"></i>
+                                </button>
+                                <span>{{x.qty}}</span>
+                                <button type="button" class="btn" (click)="decQty(x.id, x.qty)"><i
+                                        class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                        </td>
+                        <td>{{x.prix}}DTN</td>
+
+                        <td>{{x.prix*x.qty | number}}DTN</td>
+                        <td>
+                            <button type="button" class="btn_1" (click)="removeItem(x.id); addToast({title:'Bootstrap Toasty', msg:'Turning standard Bootstrap alerts into awesome notifications', showClose: true, timeout: 5000, theme:'bootstrap', type:'wait', position:'bottom-right', closeOther:true})"><i
+                                    class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+
+                </table>
+                <h4 style="text-align: right;">Total Prix {{total}}</h4>
+                <div>
+                    <i class="fas fa-trash-alt"></i> <button type="button" class="btn_1"
+                        (click)="removeItems()">Supprimer
+                        Tous</button>
+                    <i class="fas fa-shipping-fast"></i><button type="button " class="btn_1">Valider la
+                        Commande</button>
+                    <i class="fas fa-undo-alt"></i><button type="button " class="btn_1" (click)="retour()">Continuer mes Achats
+                    </button>
+                </div>
+            </div>
+        </div>
+   
+    </div>
+</section>

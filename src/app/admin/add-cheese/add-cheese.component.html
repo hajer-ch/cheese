@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-sm-6">
+        <h4 class="sub-title">{{titles}} Cheese</h4>
+        <form #productForm="ngForm" (ngSubmit)="addProduct()">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" [(ngModel)]="product.title"
+                        [ngModelOptions]="{standalone:true}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Type your description"
+                        [(ngModel)]="product.description" [ngModelOptions]="{standalone:true}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" [(ngModel)]="product.price"
+                        [ngModelOptions]="{standalone:true}">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" (click)='filePicker.click()'>Upload Picture</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" (change)='onImageSelected($event)' #filePicker>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <button type="submit" class="btn btn-success waves-effect" >{{titles}} Product</button>
+            </div>
+        </form>
+    </div>
+</div>

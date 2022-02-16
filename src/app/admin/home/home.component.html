@@ -1,0 +1,37 @@
+<div class="col-md-12 button-page">
+  <div class="card-body reset-table p-t-0 notifications">
+    <div class="table-responsive">
+      <app-card [title]="'Cheese List'">
+        <table class="table">
+          <thead>
+            <tr class="text-uppercase">
+              <th>Image</th>
+              <th>Product Name</th>
+              <th>Last Update</th>
+              <th>Price</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let m of products'>
+              <td><a href="javascript:;"><img class="img-responsive" src="assets/images/widget/prod1.jpg"
+                    alt="chat-user"></a>
+              </td>
+
+              <td>{{m.title}}</td>
+              <td>27 Sep 2015</td>
+              <td>{{m.price}}</td>
+              <td>{{m.description}}</td>
+             <td>  <button class="btn btn-success btn-round" (click)="updateProduct(m._id)">Update</button>
+             
+                <button class="btn btn-danger btn-round" (click)="deleteProduct(m._id) ; addToast({title:'Delete ', msg:'Product has been deleted ', timeout: 5000, theme:'default', position:'bottom-right', type:'default'})" >Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </app-card>
+    </div>
+  </div>
+</div>
+<ng2-toasty [position]="position"></ng2-toasty>

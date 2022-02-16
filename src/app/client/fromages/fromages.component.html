@@ -1,0 +1,16 @@
+<section class="exclusive_item_part blog_item_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+                    <h2>Nos Fromages </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4" *ngFor="let prod of products">
+                <app-sous-fromages [products]="prod"></app-sous-fromages>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,154 @@
+<section class="regervation_part section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+                    <h2>Sign Up</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="regervation_part_iner">
+                    <form [formGroup]="signupForm">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" formControlName="fullName" class="form-control" id=""
+                                    placeholder="Nom et Prénom *">
+                            </div>
+                            <div *ngIf='signupForm.controls["fullName"].invalid &&
+                                 (signupForm.controls["fullName"].dirty || signupForm.controls["fullName"].touched)'>
+
+                                <div *ngIf='signupForm.controls["fullName"].errors.minlength' style="color:red;">
+                                    Vous devez rentrer votre Nom et Prénom
+                                </div>
+                                <div *ngIf='signupForm.controls["fullName"].errors.maxlength' style="color:red;">
+                                    votre nom ne doit pas depasser 20 caractéres
+                                </div>
+                                <div *ngIf='signupForm.controls["fullName"].errors.required' style="color: red;">
+                                    Ce champs est obligatoire!
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" formControlName="email" class="form-control" id="Email"
+                                    placeholder="email *">
+                            </div>
+                            <div *ngIf="signupForm.controls['email'].invalid &&
+                            (signupForm.controls['email'].dirty || 
+                            signupForm.controls['email'].touched)">
+                                <div *ngIf="signupForm.controls['email'].errors.email" style="color: red;">
+                                    Invalid email format
+                                </div>
+                                <div *ngIf="signupForm.controls['email'].errors.required" style="color: red;">
+                                    Email is required
+                                </div>
+                            </div>
+                            <div style="color: red;">
+                                {{msg}}
+
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="pwd" formControlName="pwd" class="form-control" id="pwd"
+                                    placeholder="Mot de Passe *">
+                            </div>
+                            <div *ngIf='signupForm.controls["pwd"].invalid && 
+            (signupForm.controls["pwd"].dirty || 
+            signupForm.controls["pwd"].touched)'>
+            <div *ngIf='signupForm.controls["pwd"].errors.minlength' style="color:brown;">
+              Mot de passe doit au moin etre 8 caractéres
+            </div>
+            <div *ngIf='signupForm.controls["pwd"].errors.maxlength' style="color:brown;">
+                Mot de passe doit etre maximum 16 caractéres
+              </div>
+            <div *ngIf='signupForm.controls["pwd"].errors.required' style="color: brown;">
+              This field is required
+            </div>
+          </div>
+          <!-- <div *ngIf='signupForm.controls["pwd"].errors.pattern' style="color:brown;">
+            At least 8 characters in length
+            Lowercase letters
+            Uppercase letters
+            Numbers
+            Special characters
+          </div> -->
+                            
+                            
+
+                            <div class="form-group">
+                                <!-- give a name to each input -->
+                                <input type="pwd" class="form-control" formControlName='confirmPwd' placeholder=" Confirm pwd">
+                              </div>
+                              <div *ngIf="signupForm.controls['confirmPwd'].invalid &&
+                                  (signupForm.controls['confirmPwd'].dirty ||
+                                  signupForm.controls['confirmPwd'].touched)">
+                                <div *ngIf="signupForm.controls['confirmPwd'].errors.mustMatch" class="textdanger" style="color: brown;">
+                                  Mot de passe doit etre identique
+                                </div>
+                              </div>
+                            <div class="form-group col-md-6">
+                                <input type="number" class="form-control" formControlName="tel" id="phone"
+                                    placeholder="Mobile *">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <select class="form-control" id="Select">
+                                    <option value="1" selected>Governerat *</option>
+                                    <option value="2">Ariana</option>
+                                    <option value="2">Béja</option>
+                                    <option value="2">Ben Arous</option>
+                                    <option value="2">Bizerte</option>
+                                    <option value="2">Gabès</option>
+                                    <option value="2">Gafsa</option>
+                                    <option value="2">Jendouba</option>
+                                    <option value="3">Kairouan</option>
+                                    <option value="4">Kasserine</option>
+                                    <option value="5">Kébili</option>
+                                    <option value="5">Kef</option>
+                                    <option value="5">Mahdia</option>
+                                    <option value="3">Manouba</option>
+                                    <option value="4">Médenine</option>
+                                    <option value="5">Monastir</option>
+                                    <option value="5">Nabeul</option>
+                                    <option value="5">Sfax</option>
+                                    <option value="4">Sidi Bouzid</option>
+                                    <option value="5">Siliana</option>
+                                    <option value="5">Sousse</option>
+                                    <option value="5">Tataouine</option>
+                                    <option value="5">Tozeur</option>
+                                    <option value="5">Tunis</option>
+                                    <option value="5">Zaghouan</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" formControlName="commune" class="form-control" id=""
+                                    placeholder="Commune *">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="number" formControlName="codePostal" class="form-control"
+                                    id="" placeholder="Code Postal *">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" formControlName="adresse" class="form-control" id=""
+                                    placeholder="Adresse">
+                            </div>
+                            <div *ngIf='signupForm.controls["adresse"].invalid &&
+                                 (signupForm.controls["adresse"].dirty || signupForm.controls["adresse"].touched)'>
+
+                                <div *ngIf='signupForm.controls["adresse"].errors.maxlength' style="color:red;">
+                                    Vous devez rentrer votre adresse
+                                </div>
+                                <div *ngIf='signupForm.controls["adresse"].errors.required' style="color: red;">
+                                    Ce champs est obligatoire!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="regerv_btn">
+                            <input type="submit" [disabled]="signupForm.invalid" (click)="signup(signupForm.value)"
+                            class="btn_4" value="Sign Up ">
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
